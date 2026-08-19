@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Weekly technology review covering AI, embodied AI, robotics, sensing, data generation and simulation, quantum computing, and emerging technologies for 10–16 August 2026.">
+  <title>Weekly Technology Review — 10–16 August 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+  <style>
+    :root { --ink:#111; --muted:#666; --rule:#d8d8d8; --accent:#8b1e1e; --soft:#f5f3ee; }
+    html { scroll-behavior:smooth; }
+    body { color:var(--ink); background:#fff; }
+    article { padding-top:3rem; }
+    h1 { margin-top:0; }
+    h2 { margin-top:3.5rem; border-top:1px solid var(--rule); padding-top:1.25rem; }
+    h3 { margin-top:2.2rem; }
+    h4 { font-style:italic; margin-bottom:.4rem; }
+    p, li { hyphens:auto; }
+    a { color:var(--accent); }
+    .subtitle { color:var(--muted); }
+    .metadata { font-size:1rem; color:var(--muted); margin:.5rem 0 2rem; }
+    .lede { font-size:1.45rem; line-height:1.45; }
+    .citation { font-size:.78em; vertical-align:super; text-decoration:none; white-space:nowrap; }
+    .kicker { text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; color:var(--muted); font-weight:700; }
+    .callout { background:var(--soft); border-left:4px solid var(--accent); padding:1rem 1.25rem; margin:1.5rem 0; max-width:55%; }
+    .callout p:last-child { margin-bottom:0; }
+    .compact li { margin-bottom:.45rem; }
+    .toc { max-width:55%; columns:2; column-gap:2.5rem; }
+    .toc li { break-inside:avoid; margin-bottom:.4rem; }
+    .table-wrap { overflow-x:auto; max-width:100%; margin:1.5rem 0 2rem; }
+    table { border-collapse:collapse; width:100%; font-size:.92rem; line-height:1.35; }
+    th, td { border-bottom:1px solid var(--rule); padding:.65rem .75rem; text-align:left; vertical-align:top; }
+    th { font-weight:700; background:var(--soft); }
+    .tag { display:inline-block; border:1px solid #aaa; border-radius:1rem; padding:.1rem .55rem; font-size:.75rem; white-space:nowrap; }
+    .high { border-color:#326a3d; color:#285b31; }
+    .medium { border-color:#9b6b15; color:#7b520c; }
+    .low { border-color:#8b1e1e; color:#8b1e1e; }
+    .verdict { font-weight:700; }
+    .source-note { color:var(--muted); font-size:.9rem; }
+    .refs { font-size:.9rem; line-height:1.4; }
+    .refs li { margin-bottom:.7rem; }
+    .back { font-size:.8rem; }
+    .no-material { border:1px dashed #aaa; padding:.9rem 1.1rem; color:#555; }
+    @media (max-width:760px) {
+      body { width:auto; padding-left:1.2rem; }
+      article { padding-right:1.2rem; }
+      p, footer, table, ol, ul, h1, h2, h3, h4, .subtitle, .metadata, .callout, .toc { width:auto; max-width:100%; }
+      .toc { columns:1; }
+      .sidenote, .marginnote { float:none; display:block; width:auto; margin:1rem 0; }
+    }
+    @media print {
+      body { width:auto; padding:0 1.5cm; font-size:10pt; }
+      article { padding:0; }
+      .callout, .toc, p, ol, ul, table { max-width:100%; width:100%; }
+      a { color:inherit; text-decoration:none; }
+      h2, h3 { break-after:avoid; }
+      table, blockquote, .callout { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+<article>
+  <header id="top">
+    <p class="kicker">IPAI technology intelligence</p>
+    <h1>Weekly Technology Review</h1>
+    <p class="subtitle">AI, embodied AI, robotics, sensing, data generation &amp; simulation, quantum, and emerging technologies</p>
+    <p class="metadata"><strong>Coverage:</strong> 10–16 August 2026 &nbsp;·&nbsp; <strong>Published:</strong> 17 August 2026 &nbsp;·&nbsp; <strong>Time zone:</strong> Europe/Berlin</p>
+    <p class="lede">This week’s decisive shift was not a single new model or robot. It was the continued assembly of deployable technology stacks: faster inference, cheaper agentic models, region-controlled infrastructure, content provenance, simulation-trained physical systems, and cloud-integrated quantum access. For IPAI, the practical implication is to evaluate complete operating systems—not isolated benchmark scores.</p>
+  </header>
+
+  <nav aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol class="toc compact">
+      <li><a href="#executive-summary">Executive summary</a></li>
+      <li><a href="#ipai-impact">IPAI impact and relevance</a></li>
+      <li><a href="#ai">Artificial intelligence</a></li>
+      <li><a href="#embodied-ai">Embodied AI</a></li>
+      <li><a href="#robotics">Robotics</a></li>
+      <li><a href="#sensing">Sensing and edge intelligence</a></li>
+      <li><a href="#simulation">Data generation and simulation</a></li>
+      <li><a href="#quantum">Quantum</a></li>
+      <li><a href="#emerging">Emerging technologies</a></li>
+      <li><a href="#synthesis">Cross-domain synthesis</a></li>
+      <li><a href="#watchlist">Watchlist</a></li>
+      <li><a href="#method">Method and confidence</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="executive-summary">
+      <h2>Executive summary</h2>
+      <p>The week produced five material signals. First, inference speed is becoming an independent product tier: OpenAI previewed GPT‑5.6 Sol “Ultrafast” at up to 750 output tokens per second and up to 14× its standard processing speed, powered by Cerebras. Access is limited and pricing was not disclosed, so these are vendor-reported ceilings rather than production guarantees.<a class="citation" href="#ref-1">[1]</a><a class="citation" href="#ref-2">[2]</a></p>
+      <p>Second, model economics compressed again. Google released Gemini 3.7 Flash for coding and agents at an introductory $0.75 per million input tokens and $3.75 per million output tokens through 2026; Google reports substantial gains over 3.6 Flash on coding, document and automation benchmarks. Anthropic separately made Claude Sonnet 5’s introductory $2/$10 input/output pricing permanent.<a class="citation" href="#ref-3">[3]</a><a class="citation" href="#ref-4">[4]</a> The evidence supports a procurement conclusion—not a universal model ranking: production teams should route work by measured quality, latency, retry rate and total workflow cost.</p>
+      <p>Third, European sovereignty is moving from model nationality to operational control. Mistral made regional endpoints generally available, previewed an SLA-backed priority tier, and said its platform will host third-party open models beginning with Z.ai’s GLM‑5.2 under the same regional controls.<a class="citation" href="#ref-5">[5]</a> This is strategically relevant to IPAI because it enables model choice without necessarily fragmenting residency, service management and governance.</p>
+      <p>Fourth, provenance is becoming a native model and content-pipeline feature. Anthropic described a statistical watermark for future Claude-generated text and C2PA credentials for supported files in response to EU AI Act transparency duties.<a class="citation" href="#ref-6">[6]</a> The European Commission’s guidance says Article 50 applies from 2 August 2026 and requires machine-readable marking for relevant AI-generated or manipulated content.<a class="citation" href="#ref-7">[7]</a> Watermarking is not proof of authorship and can be weakened by rewriting; it is one control in a broader provenance system.</p>
+      <p>Fifth, physical AI is consolidating around integrated hardware, model, safety, data and factory stacks. LG and NVIDIA announced a GR00T/Jetson Thor/Halos-based humanoid planned for a first-quarter 2027 unveiling, a nearer-term deployment of wheeled CLOiD robots on an LG washing-machine line in Tennessee, and an on-site data factory spanning real data, synthetic data, training and verification.<a class="citation" href="#ref-10">[10]</a> The factory pilot is the evidence-bearing milestone; the humanoid remains an announced development target.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Priority</th><th>Development</th><th>Why it matters</th><th>Evidence</th><th>IPAI posture</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>AI provenance and EU transparency</td><td>Compliance moves into generation, metadata, publishing and audit pipelines.</td><td><span class="tag high">High</span></td><td class="verdict">Act now</td></tr>
+            <tr><td>2</td><td>European regional inference and open-model choice</td><td>Offers a practical control plane for sovereign, multi-model operation.</td><td><span class="tag high">High</span></td><td class="verdict">Engage</td></tr>
+            <tr><td>3</td><td>Faster, cheaper agentic inference</td><td>Changes viable human-in-the-loop and real-time workflows.</td><td><span class="tag medium">Medium</span></td><td class="verdict">Benchmark</td></tr>
+            <tr><td>4</td><td>LG–NVIDIA physical-AI stack</td><td>Connects robot data, simulation, models, safety and factory validation.</td><td><span class="tag medium">Medium</span></td><td class="verdict">Engage / monitor</td></tr>
+            <tr><td>5</td><td>GeoPT physics pre-training</td><td>Suggests lower-data, faster training for engineering surrogates and digital twins.</td><td><span class="tag medium">Medium</span></td><td class="verdict">Experiment</td></tr>
+            <tr><td>6</td><td>AI compute financialization</td><td>Could broaden access, but “mobilize” is not equivalent to committed capacity.</td><td><span class="tag medium">Medium</span></td><td class="verdict">Monitor</td></tr>
+            <tr><td>7</td><td>Cloud-integrated quantum</td><td>Improves access to hybrid workflows without demonstrating application advantage.</td><td><span class="tag medium">Medium</span></td><td class="verdict">Learn / monitor</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p><strong>Bottom line.</strong> The highest-value IPAI work is evaluation infrastructure: provenance testing, multi-model routing benchmarks, physical-AI proving grounds and physics-aware simulation pilots. The week does not justify a large irreversible bet on humanoids or quantum hardware.</p>
+      </div>
+    </section>
+
+    <section id="ipai-impact">
+      <h2>IPAI impact and relevance</h2>
+      <h3>Immediate opportunities</h3>
+      <ol class="compact">
+        <li><strong>Launch a provenance conformance track.</strong> Build a small reference pipeline that records model/version, prompt and transformation lineage; preserves C2PA metadata; displays EU-compatible labels where applicable; and tests watermark detectability after translation, light editing, summarisation and format conversion. Anthropic itself notes that complete rewriting can remove its watermark and that a positive detection only indicates likely Claude involvement.<a class="citation" href="#ref-6">[6]</a></li>
+        <li><strong>Benchmark work-per-euro, not tokens alone.</strong> Compare Gemini 3.7 Flash, Sonnet 5, Mistral-hosted open models, and GPT‑5.6 Sol Ultrafast where access permits. Measure task success, time to accepted answer, retries, tool-call failures, human review minutes, energy or infrastructure constraints, and data-governance fit. Vendor benchmark deltas should set hypotheses, not acceptance criteria.</li>
+        <li><strong>Create a physical-AI proving-ground scorecard.</strong> For each robot task, record autonomous task completion, interventions per hour, recovery from perturbations, cycle-time distribution, safety stops, changeover time, data yield and fully loaded cost per successful task. Benchmark humanoids against wheeled, fixed-arm and process-redesign alternatives.</li>
+        <li><strong>Run one physics-surrogate pilot.</strong> Select an industrial member problem with expensive numerical simulation—airflow, fluid interaction, collision, deformation or geometry variation—and evaluate GeoPT-style pre-training or a comparable surrogate against the incumbent solver. Require held-out geometries and real measurements, not only in-distribution synthetic tests.</li>
+        <li><strong>Convene a sovereign control-plane architecture session.</strong> Compare self-hosting, regional managed endpoints and hybrid operation across residency, subprocessors, auditability, capacity guarantees, model portability, incident response and exit costs. Mistral’s regional endpoint language explicitly allows limited safeguarded transfers to subprocessors outside the selected region, which should be examined rather than assumed away.<a class="citation" href="#ref-5">[5]</a></li>
+      </ol>
+
+      <h3>Recommended 30-day decision agenda</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Decision</th><th>Owner profile</th><th>Evidence required</th><th>Exit criterion</th></tr></thead>
+          <tbody>
+            <tr><td>Adopt a content-provenance reference pattern</td><td>Governance + platform engineering</td><td>Regulatory mapping, detector robustness, metadata survival, false-positive/negative tests</td><td>Auditable chain from generation to publication</td></tr>
+            <tr><td>Add fast/low-cost models to routing catalogue</td><td>AI platform + application teams</td><td>Representative tasks, p50/p95 latency, cost per accepted task, safety and residency</td><td>Statistically credible improvement over current route</td></tr>
+            <tr><td>Start physical-AI pilot</td><td>Manufacturing + robotics</td><td>Baseline process economics, safety case, intervention and recovery metrics</td><td>Improved cost or capability without degraded safety</td></tr>
+            <tr><td>Start simulation research pilot</td><td>Engineering R&amp;D + data</td><td>Solver baseline, held-out geometry, real-world residuals</td><td>Useful speed/data reduction at bounded error</td></tr>
+            <tr><td>Join quantum-access partnership</td><td>Research partnerships</td><td>Named workload, classical baseline, skills and access plan</td><td>Learning value or measured computational benefit; no advantage claim required</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Key risks</h3>
+      <ul class="compact">
+        <li><strong>Benchmark capture:</strong> model and hardware suppliers define tests that favour their systems; independent, workload-specific validation is essential.</li>
+        <li><strong>Announcement-to-deployment gap:</strong> financing platforms, humanoid unveilings and quantum-cloud services describe future capacity. Treat dates, scale and economics as uncertain until contracted or operating.</li>
+        <li><strong>Stack lock-in:</strong> integrated physical-AI and cloud-quantum offerings reduce integration friction while increasing dependency on proprietary runtimes, safety layers, data formats and service controls.</li>
+        <li><strong>Compliance theatre:</strong> labels and watermarks can create false assurance if lineage is lost during editing, export or downstream publication.</li>
+        <li><strong>Capital-cycle risk:</strong> extraordinary AI and robotics financing may expand experimentation, but can also detach valuations and investment pace from demonstrated industrial productivity.</li>
+      </ul>
+    </section>
+
+    <section id="ai">
+      <h2>Artificial intelligence</h2>
+      <h3>Latency becomes a model capability</h3>
+      <p><strong>What happened.</strong> OpenAI previewed an API service tier called Ultrafast for GPT‑5.6 Sol, powered by Cerebras. OpenAI reports up to 14× standard-processing speed and up to 750 output tokens per second; Cerebras says access initially covers a select group of customers.<a class="citation" href="#ref-1">[1]</a><a class="citation" href="#ref-2">[2]</a></p>
+      <p><strong>Why it matters.</strong> When high-capability reasoning fits inside a human conversational pause—or an operational response window—systems can place models on the critical path of incident response, interactive engineering, live supervision and certain security workflows. The relevant unit becomes useful work per second, not raw tokens per second.</p>
+      <p><strong>Evidence limits.</strong> “Up to” figures are best-case vendor claims. The public materials do not establish pricing, general availability, p95 latency, concurrency behaviour or speed under long contexts and tool-heavy agents. Cerebras’ comparative benchmark is supplier-run. IPAI should reproduce performance on industrial workloads before inferring productivity or control-loop gains.</p>
+
+      <h3>Agentic models compete on cost-performance</h3>
+      <p>Google’s Gemini 3.7 Flash arrived only three weeks after 3.6 Flash. Google reports gains on FrontierCode, DeepSWE, WebDev Arena, GDP.pdf and AutomationBench, and prices it at $0.75 per million input tokens and $3.75 per million output tokens through 31 December 2026; the stated 2027 prices double.<a class="citation" href="#ref-3">[3]</a> The fast cadence suggests that procurement decisions based on a single annual benchmark will age poorly.</p>
+      <p>Anthropic’s 10 August update made Sonnet 5’s introductory pricing permanent at $2 per million input tokens and $10 per million output tokens, reversing a planned move to $3/$15.<a class="citation" href="#ref-4">[4]</a> Together, these releases intensify pressure on the “default frontier model” pattern. A robust enterprise architecture should route by task, risk, context size, latency and jurisdiction—and preserve an exit path.</p>
+
+      <h3>Sovereignty shifts to the control plane</h3>
+      <p>Mistral’s regional endpoints are now generally available for Europe or the US, while an SLA-backed priority tier is in public preview. More significantly, the company will support third-party open models, beginning with GLM‑5.2, on the same infrastructure, regional controls and service commitments.<a class="citation" href="#ref-5">[5]</a> Mistral also described multi-year European Compute Units that aggregate enterprise demand to support Europe-based infrastructure.</p>
+      <p>The strategic implication is that sovereignty is not reducible to where a model developer is headquartered. It is the ability to choose and change models; know where data and processing occur; secure capacity; audit operations; control fine-tuning and organisational knowledge; and maintain continuity. Mistral’s offer is an important European attempt to package these requirements. Its claims about uniqueness, reliability and future scale remain vendor statements.</p>
+
+      <h3>Provenance moves into generation</h3>
+      <p>Anthropic said future Claude models will bias otherwise acceptable token choices according to a secret key, creating a statistical pattern detectable by a key holder without hidden characters or extra tokens. It also said supported generated files will carry C2PA content credentials.<a class="citation" href="#ref-6">[6]</a> This responds to EU requirements for machine-readable marking and complements the Commission’s voluntary icons for disclosure by deployers.<a class="citation" href="#ref-7">[7]</a><a class="citation" href="#ref-18">[18]</a></p>
+      <p>The method’s limits are as important as its mechanics. A watermark can indicate probable model involvement but not authorship, ownership or whether Claude wrote versus edited the content. Complete rewriting can defeat it. Accordingly, IPAI members should combine model-side marking with signed metadata, durable internal lineage, human disclosure rules and retention policies.</p>
+
+      <h3>Compute becomes an investable asset class</h3>
+      <p>NVIDIA announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent platforms intended to mobilise more than $500 billion in third-party capital for AI infrastructure over time.<a class="citation" href="#ref-8">[8]</a> Separately, Reuters reported a $240 million multi-year IBM–Together AI agreement for a US inference cluster beginning with roughly 2,000 NVIDIA Blackwell chips and focused on open models.<a class="citation" href="#ref-9">[9]</a></p>
+      <p>The first figure is a financing ambition, not committed or deployed capital. Even so, the structure is consequential: compute capacity is being packaged with long-duration usage-linked revenue for institutional investors. This may lower the capital barrier for large AI factories, but it does not automatically solve European power, permitting, grid, cooling, network or sovereign-control constraints.</p>
+    </section>
+
+    <section id="embodied-ai">
+      <h2>Embodied AI</h2>
+      <h3>LG and NVIDIA connect models, safety, data and deployment</h3>
+      <p>LG’s announced bipedal humanoid will use NVIDIA Isaac GR00T, Jetson Thor and Halos for Robotics; LG plans to combine group capabilities in actuators, sensors and batteries. The companies also described a PhysicalWorks-based on-site “robot data factory” for continuous collection, synthetic-data generation, training and verification, feeding both NVIDIA technology and LG’s own robot foundation model.<a class="citation" href="#ref-10">[10]</a></p>
+      <p>This is a stronger signal than a standalone robot demonstration because it addresses the embodied-AI flywheel: deployment produces data; data and simulation improve policies; updated policies return to the fleet; safety and verification gate the loop. It is also a lock-in risk: the value moves to the organisation controlling data, training infrastructure, runtime and safety assurance.</p>
+      <p><strong>Assessment:</strong> strategically important, operationally unproven. The first-quarter 2027 humanoid is an unveiling target. The 2026 CLOiD production-line validation is the nearer-term test and should be judged on task economics, robustness and human intervention—not a demonstration video.</p>
+
+      <div class="no-material"><strong>No additional major research release met the weekly threshold.</strong> Several widely circulated vision-language-action and robot-planning stories were based on work published before the reporting window. They were excluded as recirculation rather than counted as new progress.</div>
+    </section>
+
+    <section id="robotics">
+      <h2>Robotics</h2>
+      <h3>Industrial validation is the critical milestone</h3>
+      <p>LG plans to deploy wheeled CLOiD robots to its Tennessee washing-machine line for validation during 2026 and to expand only after refining performance and utility.<a class="citation" href="#ref-10">[10]</a> This sequencing is sound. Wheeled platforms avoid the energy, balance and fall-risk penalties of bipeds where facilities are already navigable. Humanoids should win only where human morphology unlocks tasks or environments that simpler automation cannot address economically.</p>
+      <p>For IPAI, the appropriate comparison is not “humanoid versus human.” It is a four-way baseline: fixed automation, mobile manipulation, humanoid, and process redesign. A proving ground should introduce controlled perturbations—object displacement, lighting changes, blocked paths, tool variance, network degradation—and measure recovery rather than only nominal success.</p>
+
+      <h3>Unitree shows capital enthusiasm—and valuation risk</h3>
+      <p>The Financial Times reported that Unitree’s retail IPO tranche was more than 5,500 times oversubscribed, with approximately $900 million raised at a roughly $9 billion valuation; about RMB2 billion of proceeds is intended for robot AI-model development.<a class="citation" href="#ref-11">[11]</a> This provides capital for model, manufacturing and commercial expansion, and it signals extraordinary investor appetite for embodied AI.</p>
+      <p>It is not evidence of robot productivity. The reported valuation multiples and oversubscription point to speculative pressure as well as confidence. IPAI should treat the listing as a market-formation signal and continue to anchor industrial decisions in total cost per reliable task.</p>
+    </section>
+
+    <section id="sensing">
+      <h2>Sensing and edge intelligence</h2>
+      <h3>Image sensing becomes a foundry co-design problem</h3>
+      <p>Sony Semiconductor Solutions and TSMC signed a definitive agreement to establish Advanced Vision Semiconductor Manufacturing Corporation in Kumamoto. Sony will control the venture; the parties plan approximately ¥465 billion and ¥282 billion in phased contributions respectively. The factory is intended to develop and manufacture next-generation smartphone image sensors using advanced process technology, with volume production expected in 2029.<a class="citation" href="#ref-12">[12]</a></p>
+      <p>The direct scope is consumer image sensing, not industrial machine vision. The broader signal is structural: next-generation sensing increasingly depends on sensor architecture, advanced logic processes, packaging, software and manufacturing capacity as one system. Consumer scale can later affect cost curves and capabilities available to robotics, mobility and industrial inspection, but that spillover is an inference rather than an announced deliverable.</p>
+
+      <h3>Consumer edge AI integrates sensor, silicon and agent</h3>
+      <p>Google’s Pixel 11 family uses the new Tensor G6 to run the latest Gemini Nano and pairs on-device generative AI with upgraded cameras and real-time capabilities such as speech translation; the Pro Fold adds sign-to-text translation using its camera and dual displays.<a class="citation" href="#ref-13">[13]</a> The strategic relevance is not the phone itself. It is the distribution of multimodal inference at the edge, where latency, privacy, offline operation and sensor context can outweigh raw frontier-model capability.</p>
+      <p>IPAI members should expect consumer hardware to raise user expectations for private, responsive, context-aware industrial interfaces. Evaluation must still cover thermal limits, battery or power budgets, sensor drift, update governance and the boundary between on-device and cloud processing.</p>
+    </section>
+
+    <section id="simulation">
+      <h2>Data generation and simulation</h2>
+      <h3>GeoPT pre-trains models on physical interactions</h3>
+      <p>Researchers from MIT CSAIL and Tsinghua introduced GeoPT, a pre-training approach that uses synthetic 3D particle–object interactions to give simulation models reusable physical priors. MIT reports that downstream models reached peak performance twice as fast and used up to 60% less training data than leading comparators on the evaluated tasks.<a class="citation" href="#ref-14">[14]</a></p>
+      <p>The research matters because it shifts synthetic data from visual variety toward physical structure. Instead of training a separate surrogate from scratch for every geometry or flow condition, pre-training may transfer knowledge about boundaries and interactions. Potential applications include vehicle design, airflow, fluid response, collisions and robot interaction.</p>
+      <p><strong>Uncertainty.</strong> The results are research-stage and task-bounded. “Physics foundation model” is an ambition, not a demonstrated general simulator. Industrial use requires comparison with trusted solvers and physical measurements across unseen geometries, boundary conditions and failure regimes. Errors must be quantified in engineering units, not only learning metrics.</p>
+
+      <h3>The data flywheel becomes part of the robot product</h3>
+      <p>LG’s planned PhysicalWorks stack is the week’s complementary commercial signal: an on-site pipeline for real data, synthetic generation, training and verification linked to factory deployment.<a class="citation" href="#ref-10">[10]</a> This reinforces a key point for IPAI: industrial data generation is not a one-off dataset purchase. It is a governed loop with scenario coverage, provenance, simulation-to-real residuals, privacy, quality thresholds and versioned validation.</p>
+    </section>
+
+    <section id="quantum">
+      <h2>Quantum</h2>
+      <h3>Quantinuum and Oracle bring a QPU into the AI data-centre stack</h3>
+      <p>Oracle and Quantinuum announced a multi-year partnership to deploy the 98-physical-qubit Helios trapped-ion system in a US Oracle Cloud Infrastructure AI data centre. OCI plans a quantum-service preview “in the coming months,” integrating quantum access with HPC, GPU, storage, identity and governance services.<a class="citation" href="#ref-15">[15]</a></p>
+      <p>The credible near-term development is access and orchestration, not a new application-level quantum advantage. Locating a QPU beside classical infrastructure can reduce integration friction for hybrid experiments in chemistry, materials, finance and optimisation. Oracle’s statements about future applications and energy efficiency are forward-looking or vendor-derived; they do not establish that a particular enterprise workload will outperform the best classical method.</p>
+
+      <h3>QOBLIB pushes optimisation toward shared evidence</h3>
+      <p>IBM highlighted the Quantum Optimization Benchmarking Library, an open, community-driven framework with ten optimisation problem classes, shared metrics and classical/quantum baselines. IBM reports more than 2,000 submitted results and a new Nature Computational Science publication and website.<a class="citation" href="#ref-16">[16]</a> This is useful infrastructure for disciplined comparison, although IBM’s headline that “quantum advantage is here” refers to separate prior experiments and should not be read as proof of optimisation advantage.</p>
+      <p><strong>IPAI relevance:</strong> quantum engagement should be workload-led. A member should bring a defined problem, data, classical baseline and decision value; the programme should measure learning and reproducibility before promising speed, cost or energy advantage.</p>
+
+      <div class="no-material"><strong>No verified new hardware or error-correction breakthrough was identified in the window.</strong> The material change was ecosystem integration and benchmarking infrastructure.</div>
+    </section>
+
+    <section id="emerging">
+      <h2>Emerging technologies</h2>
+      <h3>South Korea adopts a mission-led technology portfolio</h3>
+      <p>South Korea unveiled the “Seven Major SEED” initiative spanning small modular reactors, fusion and renewable energy, quantum, space and aviation, biotechnology, and critical materials. Reported milestones include a 2030 lunar landing, a 100-qubit quantum processor by 2029, brain–computer-interface products by 2035, and ₩10 trillion for materials and equipment.<a class="citation" href="#ref-17">[17]</a></p>
+      <p>This is a policy roadmap, not technical evidence. Its relevance lies in portfolio design: national competitiveness is being framed around linked missions across compute, energy, materials, biology and space rather than AI alone. For IPAI, the useful lesson is to connect frontier research to measurable industrial pull, test infrastructure, workforce and regulatory pathways—and to publish milestone evidence rather than repeating target dates.</p>
+
+      <h3>Screened-out signals</h3>
+      <p>Several stories circulated during the week about single-electron memory and robot planning, but the underlying papers or institutional announcements pre-dated 10 August. They are excluded from the weekly findings. This distinction prevents media recirculation from being mistaken for new research progress.</p>
+    </section>
+
+    <section id="synthesis">
+      <h2>Cross-domain synthesis</h2>
+      <h3>1. The stack is becoming the product</h3>
+      <p>OpenAI–Cerebras joins model and specialised inference hardware; Mistral combines model choice, region and capacity; LG–NVIDIA links robot hardware, foundation models, safety, synthetic data and factories; Oracle–Quantinuum places quantum beside classical AI/HPC. Competitive advantage increasingly comes from integration quality, operational controls and feedback loops.</p>
+
+      <h3>2. Latency and cost change what is automatable</h3>
+      <p>Faster inference reduces the delay between observation and action. Lower model prices make retries, ensembles and high-volume routing more affordable. Neither guarantees value: the relevant outcome is accepted work per unit time, money, energy and risk.</p>
+
+      <h3>3. Provenance is now infrastructure</h3>
+      <p>Watermarks, C2PA credentials, EU disclosure icons and internal lineage must coexist. Any single mechanism is brittle across editing and file transformations. Provenance therefore belongs in platform architecture and quality assurance, not solely in legal review or user-interface labels.</p>
+
+      <h3>4. Synthetic data is converging with verification</h3>
+      <p>GeoPT demonstrates physics-oriented pre-training; LG describes synthetic data inside an on-site train-and-verify loop. The emerging best practice is not “more synthetic data,” but synthetic scenarios whose coverage and residual error are continuously checked against real systems.</p>
+
+      <h3>5. Capital is scaling ahead of validated demand</h3>
+      <p>NVIDIA’s financing ambition and Unitree’s oversubscribed IPO show that investors are funding AI infrastructure and robotics as strategic asset classes. This accelerates supply and experimentation while increasing the need for sober utilisation, energy and industrial-ROI analysis.</p>
+    </section>
+
+    <section id="watchlist">
+      <h2>Watchlist: next 2–12 weeks</h2>
+      <ul class="compact">
+        <li><strong>GPT‑5.6 Sol Ultrafast:</strong> general availability, pricing, concurrency, p95 latency, long-context performance and independent benchmarks.</li>
+        <li><strong>Gemini 3.7 Flash:</strong> independent agentic-task results, safety evaluations and the effect of 2027 price changes.</li>
+        <li><strong>Mistral:</strong> additional third-party models, Regional Endpoint subprocessors, Priority Tier SLA details and evidence of contracted European Compute Units.</li>
+        <li><strong>Claude watermark:</strong> supported models, detector access, cross-language robustness, editing resistance, false positives and interoperability with publishing systems.</li>
+        <li><strong>LG physical AI:</strong> Tennessee CLOiD deployment metrics, safety case, task selection and proof that synthetic-data loops improve production reliability.</li>
+        <li><strong>Unitree:</strong> post-listing use of proceeds and evidence that model investment improves task generality rather than demonstrations.</li>
+        <li><strong>Sony–TSMC:</strong> regulatory closing, government support and technology-transfer milestones; industrial-sensing spillover remains a longer-horizon inference.</li>
+        <li><strong>GeoPT:</strong> code/data availability, independent reproduction, scaling behaviour and validation against physical measurements.</li>
+        <li><strong>Oracle–Quantinuum:</strong> service-preview date, network latency, governance model, pricing and published hybrid workloads with strong classical baselines.</li>
+        <li><strong>QOBLIB:</strong> independently reviewed optimisation results and clarity about the threshold for practical advantage.</li>
+      </ul>
+    </section>
+
+    <section id="method">
+      <h2>Method and confidence</h2>
+      <p>This review covers developments whose event or publication date fell between 10 and 16 August 2026. Research prioritised official company releases, regulatory material and institutional research publications; Reuters and the Financial Times were used for financing, policy and market reporting. A development was included only when it changed capability, deployment, economics, governance, infrastructure or strategic direction.</p>
+      <p><strong>Confidence labels:</strong> <span class="tag high">High</span> means a directly verifiable event or rule from a primary source. <span class="tag medium">Medium</span> means the event is verified but performance, timing or impact depends partly on supplier claims or future execution. <span class="tag low">Low</span> would indicate weak or conflicting evidence; no low-confidence item was promoted to a main finding.</p>
+      <p>Dates refer to the underlying event when available, not merely the publication date. Announced capacity is not counted as deployed capacity; roadmap targets are not counted as demonstrations; internal benchmarks are not treated as independent evaluations; and stories based on older papers were screened out.</p>
+      <p class="source-note">This report is an analytical technology review, not legal, investment or procurement advice. URLs were accessed on 17 August 2026.</p>
+    </section>
+
+    <section id="references">
+      <h2>References and bibliography</h2>
+      <ol class="refs">
+        <li id="ref-1">OpenAI, “Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed,” 13 Aug 2026. <a href="https://openai.com/index/previewing-ultrafast/">openai.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-2">Cerebras, “Accelerating GPT‑5.6 Sol Ultrafast,” 13 Aug 2026. <a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai">cerebras.ai</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-3">Google, “Introducing Gemini 3.7 Flash,” 13 Aug 2026. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/">blog.google</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-4">Anthropic, “Introducing Claude Sonnet 5,” changelog updated 10 Aug 2026. <a href="https://www.anthropic.com/news/claude-sonnet-5">anthropic.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-5">Mistral AI, “In-region inference, open models, and new European infrastructure for sovereign AI,” 11 Aug 2026. <a href="https://mistral.ai/news/regional-inference-open-models-new-compute/">mistral.ai</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-6">Anthropic, “How Claude’s text watermark works,” 14 Aug 2026. <a href="https://www.anthropic.com/news/claude-text-watermark">anthropic.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-7">European Commission, “Guidelines on transparency obligations for providers and deployers of certain AI systems,” 6 Aug 2026. <a href="https://digital-strategy.ec.europa.eu/en/policies/guidelines-ai-transparency-obligations">digital-strategy.ec.europa.eu</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-8">NVIDIA, “NVIDIA Partners With Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to Establish AI Compute Infrastructure Financing Platforms to Mobilize Over $500 Billion of Third-Party Capital,” 10 Aug 2026. <a href="https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital">nvidianews.nvidia.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-9">Reuters, “IBM, Together AI ink $240 million deal for Nvidia-powered AI inference cluster,” 11 Aug 2026. <a href="https://www.reuters.com/business/ibm-together-ai-ink-240-million-deal-nvidia-powered-ai-inference-cluster-2026-08-11/">reuters.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-10">LG Corp., “LG to Unveil Its Next-Gen Humanoid Robot, Built on NVIDIA Isaac GR00T,” 13 Aug 2026. <a href="https://www.prnewswire.com/news-releases/lg-to-unveil-its-next-gen-humanoid-robot-built-on-nvidia-isaac-gr00t-302851583.html">prnewswire.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-11">Financial Times, “Chinese robot maker’s IPO 5,500 times oversubscribed by retail investors,” 11 Aug 2026. <a href="https://www.ft.com/content/99824437-8173-4320-b84b-242c726ab437">ft.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-12">Sony Semiconductor Solutions and TSMC, “Agreed to Establish Joint Venture for Next-Generation Image Sensors,” 11 Aug 2026. <a href="https://www.sony-semicon.com/en/news/2026/2026081101.html">sony-semicon.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-13">Google, “The Pixel 11 series: Your most personal Pixel yet,” 12 Aug 2026; and “Google’s most sophisticated foldable: Pixel 11 Pro Fold,” 12 Aug 2026. <a href="https://blog.google/products-and-platforms/devices/pixel/google-pixel-11-pro-xl/">Pixel 11 series</a>; <a href="https://blog.google/products-and-platforms/devices/pixel/pixel-11-pro-fold/">Pixel 11 Pro Fold</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-14">MIT CSAIL, “With a feel for physics, AI models simulate a wider range of real-world scenarios,” 10 Aug 2026. <a href="https://news.mit.edu/2026/ai-models-simulate-wider-range-of-real-world-scenarios-0810">news.mit.edu</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-15">Oracle and Quantinuum, “Quantinuum and Oracle Partner to Accelerate Hybrid Quantum Compute Adoption on Oracle Cloud Infrastructure,” 11 Aug 2026. <a href="https://www.oracle.com/news/announcement/quantinuum-and-oracle-partner-to-accelerate-hybrid-quantum-compute-adoption-on-oracle-cloud-infrastructure-2026-08-11/">oracle.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-16">IBM Quantum, “QOBLIB: tracking progress in quantum optimization,” 12 Aug 2026. <a href="https://www.ibm.com/quantum/blog/qoblib">ibm.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-17">Reuters, “South Korea unveils future technology drivers, targets moon landing by 2030,” 12 Aug 2026. <a href="https://www.reuters.com/world/asia-pacific/south-korea-unveils-future-technology-projects-targets-moon-landing-by-2030-2026-08-12/">reuters.com</a> <a class="back" href="#top">↩</a></li>
+        <li id="ref-18">European Commission, “EU Icons for labelling AI-generated content,” updated 10 Aug 2026. <a href="https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content">digital-strategy.ec.europa.eu</a> <a class="back" href="#top">↩</a></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p class="source-note">Prepared as a weekly technology intelligence review for IPAI. Single-file HTML; no scripts or embedded trackers.</p>
+  </footer>
+</article>
+</body>
+</html>
