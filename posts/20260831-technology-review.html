@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weekly Technology Review — 31 August 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+</head>
+<body>
+<article>
+  <header id="top">
+    <h1>Weekly Technology Review</h1>
+    <p class="subtitle">From AI agents to physical systems: interfaces, edge economics, and the evidence gap</p>
+    <p><strong>Report date:</strong> 31 August 2026<br>
+    <strong>Coverage:</strong> 24–30 August 2026<br>
+    <strong>Purpose:</strong> Decision-oriented review of material developments in AI, embodied AI, robotics, sensing, data and simulation, quantum technologies, and adjacent emerging technologies.<br>
+    <strong>Estimated reading time:</strong> 24 minutes</p>
+  </header>
+
+  <nav id="contents" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#executive-summary">Executive summary</a></li>
+      <li><a href="#ipai">IPAI impact and relevance</a></li>
+      <li><a href="#ai">Artificial intelligence</a></li>
+      <li><a href="#embodied-ai">Embodied AI</a></li>
+      <li><a href="#robotics">Robotics</a></li>
+      <li><a href="#sensing">Sensing</a></li>
+      <li><a href="#data-simulation">Data generation and simulation</a></li>
+      <li><a href="#quantum">Quantum technologies</a></li>
+      <li><a href="#emerging">Other emerging technologies</a></li>
+      <li><a href="#synthesis">Cross-domain synthesis</a></li>
+      <li><a href="#watchlist">Watchlist</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="executive-summary">
+      <h2>1. Executive summary</h2>
+      <p>The week’s most consequential signal was not a new frontier model. It was the first research preview of Anthropic’s Model Hardware Standard (MHS), a proposed shared interface through which agents can discover and operate programmable laboratory and manufacturing equipment. Anthropic says the preview spans microscopes, liquid handlers, robotic arms, drug-discovery experiments, and laser calibration on a quantum computer. The specification is initially restricted to partners while safety work continues. <a class="citation" href="#ref-1" aria-label="Reference 1">[1]</a> If its safety and device-abstraction claims survive real deployments, MHS could become an interoperability layer between AI orchestration and physical automation. That is directly relevant to IPAI’s Robotics Gym, evaluation-as-product work, and prospective AI Solution Foundry.</p>
+
+      <p>The second signal was the continued industrialization of the compute stack at both ends. NVIDIA announced Jetson Orin Nano 2 with a vendor-claimed 78 TOPS, twice its predecessor’s inference performance and 40% lower power at equal performance in a 15-watt mode. <a class="citation" href="#ref-2" aria-label="Reference 2">[2]</a> One day later, AWS and NVIDIA announced plans for an additional two million Blackwell Ultra, Rubin, and Rubin Ultra GPUs during 2027–2028. <a class="citation" href="#ref-3" aria-label="Reference 3">[3]</a> NVIDIA’s quarterly revenue reached $96.2 billion, up 106% year-on-year, with a 75% GAAP gross margin. <a class="citation" href="#ref-4" aria-label="Reference 4">[4]</a> These are company disclosures, not neutral market measures, but together they show that capital formation around AI infrastructure remains extraordinary and that physical-AI deployment is becoming a first-class target from cloud to edge.</p>
+
+      <p>Capital also moved toward embodied AI and quantum. XPENG’s robotics business raised more than $900 million at a post-money valuation above $6.3 billion; the company says the money will fund model development, data collection, production capacity, and commercialization. <a class="citation" href="#ref-5" aria-label="Reference 5">[5]</a> The round validates investor interest, but not robot productivity. A Reuters investigation published during the week found that Chinese humanoid demonstrations still substantially outpace useful autonomous factory work, with conventional automation often offering better precision and economics. <a class="citation" href="#ref-6" aria-label="Reference 6">[6]</a> This evidence gap is the week’s clearest overhype risk.</p>
+
+      <p>In quantum, Pasqal completed its Nasdaq debut after a SPAC transaction, gaining access to roughly $360 million in cash according to contemporaneous reporting. <a class="citation" href="#ref-7" aria-label="Reference 7">[7]</a> The listing matters strategically for European financing capacity, but it is a capital-market milestone rather than evidence of quantum advantage. IBM’s modular cryogenic milestone, announced just before the coverage window and discussed this week, remains relevant background: it joined and cooled two modules below 15 mK as an engineering step toward multi-chip systems. <a class="citation" href="#ref-8" aria-label="Reference 8">[8]</a> No independently reproduced practical quantum advantage emerged during the reporting period.</p>
+
+      <p>The week’s most important weak signal is that hardware interfaces may become the next protocol battleground after software-tool protocols. The credible alternative is fragmentation: equipment vendors may resist a common layer, regulated environments may require bespoke validation, and MHS may remain a laboratory integration toolkit. The deciding evidence will be open specification quality, independent implementations, safety boundary tests, and device-vendor adoption.</p>
+
+      <figure>
+        <figcaption>Executive prioritization</figcaption>
+        <table>
+          <thead><tr><th>Development</th><th>Area</th><th>Why it matters</th><th>Horizon</th><th>Evidence</th><th>IPAI relevance</th><th>Posture</th></tr></thead>
+          <tbody>
+            <tr><td>Model Hardware Standard preview</td><td>AI / embodied AI</td><td>Possible shared control plane for physical equipment</td><td>0–24 months</td><td>Medium</td><td>Very high</td><td>Experiment</td></tr>
+            <tr><td>Jetson Orin Nano 2</td><td>Edge / sensing</td><td>Lower-cost real-time multimodal inference</td><td>0–12 months</td><td>Medium</td><td>High</td><td>Experiment</td></tr>
+            <tr><td>AWS–NVIDIA capacity plan</td><td>AI infrastructure</td><td>Signals sustained scale and vendor concentration</td><td>12–30 months</td><td>Medium</td><td>High</td><td>Engage</td></tr>
+            <tr><td>XPENG robotics financing</td><td>Robotics</td><td>Funds vertical integration and data collection</td><td>12–36 months</td><td>High for financing; low for outcomes</td><td>Medium</td><td>Monitor</td></tr>
+            <tr><td>Pasqal public listing</td><td>Quantum</td><td>Expands financing options for a European vendor</td><td>24–60 months</td><td>High for transaction; low for advantage</td><td>Medium</td><td>Engage</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </section>
+
+    <section id="ipai">
+      <h2>2. IPAI impact and relevance</h2>
+      <h3>Strategic implications</h3>
+      <p><strong>Interpretation:</strong> IPAI should treat physical-AI interoperability and evaluation as a coupled opportunity. A protocol such as MHS reduces integration friction only if its drivers, permissions, failure modes, audit records, and human overrides can be trusted. That creates a natural role for a neutral proving ground: certify behavior at the interface boundary rather than endorsing an entire model or robot.</p>
+
+      <p><strong>Inference:</strong> The combination of cheaper edge compute and larger centralized capacity will not eliminate architecture choices; it will make placement decisions more consequential. Members will need repeatable measurements for latency, energy, privacy, resilience, and total cost across cloud, on-premises, and robot-local inference. IPAI can create value by providing the measurement harness and reference workloads rather than owning commodity compute.</p>
+
+      <p><strong>Risk:</strong> NVIDIA’s disclosures indicate continued ecosystem concentration. The announced AWS capacity spans several future NVIDIA generations, while Jetson couples edge hardware to NVIDIA’s software ecosystem. <a class="citation" href="#ref-2" aria-label="Reference 2">[2]</a><a class="citation" href="#ref-3" aria-label="Reference 3">[3]</a> The practical response is not vendor avoidance; it is portable test definitions, open telemetry, reproducible datasets, and at least one credible alternative execution path.</p>
+
+      <h3>Opportunities</h3>
+      <ul>
+        <li><strong>Physical-agent interface testbed:</strong> implement a minimal adapter for one robotic arm and one instrument, then test discovery, permissions, command validation, emergency stops, recovery, and auditability.</li>
+        <li><strong>Edge inference benchmark:</strong> compare Jetson Orin Nano 2 with incumbent edge modules using actual IPAI workloads: VLM perception, defect inspection, speech, and robot-policy inference.</li>
+        <li><strong>Humanoid evidence protocol:</strong> define tasks, intervention accounting, uptime, cycle time, recovery behavior, and human-equivalent cost before hosting demonstrations.</li>
+        <li><strong>Quantum procurement rubric:</strong> separate capital-market health, hardware availability, logical performance, application evidence, and integration cost.</li>
+        <li><strong>Trusted data layer:</strong> ensure every robotics experiment records provenance, consent/licensing, transformations, simulation parameters, and evaluation lineage.</li>
+      </ul>
+
+      <h3>Prioritized actions: next 30 days</h3>
+      <figure>
+        <figcaption>Recommended actions</figcaption>
+        <table>
+          <thead><tr><th>Action</th><th>Rationale</th><th>Urgency</th><th>Value</th><th>Effort</th><th>Owner type</th><th>Decision or deliverable</th><th>Timeframe</th></tr></thead>
+          <tbody>
+            <tr><td>Obtain and review MHS materials</td><td>Determine whether it can underpin a Robotics Gym control layer</td><td>High</td><td>High</td><td>Low</td><td>Principal architect + robotics lead</td><td>Threat model and adapter feasibility note</td><td>2 weeks</td></tr>
+            <tr><td>Design physical-agent safety evaluation</td><td>Turn interoperability into an evaluation product</td><td>High</td><td>Very high</td><td>Medium</td><td>Evaluation lead</td><td>Test matrix and one instrumented task</td><td>30 days</td></tr>
+            <tr><td>Procure two edge reference platforms</td><td>Measure placement trade-offs with member workloads</td><td>Medium</td><td>High</td><td>Low</td><td>Infrastructure architect</td><td>Reproducible benchmark report</td><td>30 days</td></tr>
+            <tr><td>Adopt intervention-adjusted robotics metrics</td><td>Prevent demos from being mistaken for autonomous productivity</td><td>High</td><td>High</td><td>Low</td><td>Robotics program lead</td><td>Standard scorecard</td><td>2 weeks</td></tr>
+            <tr><td>Open a Pasqal technical dialogue</td><td>Explore neutral-atom access without presuming advantage</td><td>Low</td><td>Medium</td><td>Low</td><td>Partnerships + quantum advisor</td><td>Workshop scoped around one industrial workload</td><td>30 days</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </section>
+
+    <section id="ai">
+      <h2>3. Artificial intelligence</h2>
+      <h3>Agents move from software tools toward equipment</h3>
+      <p><strong>What happened.</strong> Anthropic opened an MHS research preview on 27 August. The company describes a network-oriented specification allowing agents to operate multiple instruments in parallel while equipment-level controls mediate access and safety. Initial collaborators span scientific research and advanced manufacturing. <a class="citation" href="#ref-1" aria-label="Reference 1">[1]</a></p>
+      <p><strong>What is genuinely new.</strong> Programmable instrument control is old; the potentially new element is a common, agent-oriented discovery and control abstraction designed for heterogeneous devices. The strategic analogy is to software tool protocols, but physical systems add irreversible actions, timing constraints, calibration state, and safety certification.</p>
+      <p><strong>Evidence and limitations.</strong> The evidence is a vendor research preview and selected partner results, not an open ecosystem or independent safety evaluation. The system’s value cannot be judged until the specification, reference drivers, authorization model, logs, and failure semantics can be inspected. <strong>Assessment:</strong> high strategic importance, medium evidence quality, prototype maturity, medium confidence.</p>
+
+      <h3>Compute demand remains exceptional</h3>
+      <p>NVIDIA reported $96.2 billion quarterly revenue for the period ending 26 July, with data-center demand driving growth; the company also reported 75% gross margins. <a class="citation" href="#ref-4" aria-label="Reference 4">[4]</a> Separately, AWS and NVIDIA said AWS plans to deploy an additional two million NVIDIA GPUs in 2027–2028, beyond previously announced capacity. <a class="citation" href="#ref-3" aria-label="Reference 3">[3]</a></p>
+      <p><strong>Interpretation:</strong> infrastructure supply is scaling ahead of demonstrated enterprise value realization because cloud providers and model developers see strategic cost in being capacity-constrained. <strong>Alternative interpretation:</strong> announcements that bundle multiple future GPU generations do not establish firm delivery schedules, utilization, or economic returns. The credible fact is committed direction and vendor alignment; the utilization forecast remains uncertain.</p>
+      <p><strong>IPAI relevance.</strong> The implication is to invest in workload portability and measurement, not forecast aggregate capacity. IPAI’s useful unit of analysis is cost per successfully completed industrial task under reliability, privacy, and latency constraints.</p>
+    </section>
+
+    <section id="embodied-ai">
+      <h2>4. Embodied AI</h2>
+      <h3>A protocol layer could reorganize the stack</h3>
+      <p>MHS is simultaneously an AI-agent and embodied-AI development because it proposes a boundary between reasoning systems and physical devices. If adopted, model developers could target a shared interface while equipment vendors retain low-level controls. <strong>Inference:</strong> this could shift differentiation from bespoke integrations toward device skills, safety envelopes, evaluation suites, and operational data.</p>
+      <p>The main uncertainty is whether one abstraction can span instruments with radically different timing and safety characteristics. A microscope stage, liquid handler, collaborative arm, and quantum-control laser do not share the same failure tolerance. A useful standard may therefore specify discovery, schemas, identities, and audit events while leaving real-time control below the interface. <strong>Prediction, medium confidence:</strong> the first viable deployments will be supervised scientific workflows and bounded manufacturing cells, not general autonomous factories.</p>
+
+      <h3>Capital is funding vertically integrated physical-AI stacks</h3>
+      <p>XPENG says its robotics financing will support hardware and software R&amp;D, high-quality data collection, production capacity, and commercialization. <a class="citation" href="#ref-5" aria-label="Reference 5">[5]</a> This resembles the autonomous-vehicle playbook: integrate sensors, actuators, compute, data collection, simulation, training, and manufacturing.</p>
+      <p><strong>Limitations.</strong> Financing and integration breadth are inputs. They do not establish task success rates, intervention-free hours, unit economics, or demand. Reuters’ field reporting highlights continued weakness in useful autonomous factory performance despite strong demonstrations and state support. <a class="citation" href="#ref-6" aria-label="Reference 6">[6]</a> <strong>Assessment:</strong> strong evidence of ecosystem acceleration; weak evidence of near-term general-purpose productivity; medium-high confidence.</p>
+    </section>
+
+    <section id="robotics">
+      <h2>5. Robotics</h2>
+      <h3>Humanoid scale claims require productivity metrics</h3>
+      <p>XPENG’s financing is the largest disclosed private round in China’s embodied-AI sector according to the company, and the unit remains linked to an automaker with relevant capabilities in batteries, sensing, control software, and scaled manufacturing. <a class="citation" href="#ref-5" aria-label="Reference 5">[5]</a> The material change is organizational and financial capacity, not a verified robot capability.</p>
+      <p>A consequential contrary signal came from Reuters’ investigation of Chinese humanoid deployment. It found a wide gap between choreographed demonstrations and adaptive factory work, with costs, reliability, precision, and data remaining obstacles. <a class="citation" href="#ref-6" aria-label="Reference 6">[6]</a> That accords with a basic industrial comparison: a humanoid must beat an optimized arm, AMR, fixture, or workflow redesign on total system economics, not merely reproduce a human posture.</p>
+      <p><strong>IPAI relevance.</strong> The Robotics Gym should require disclosure of teleoperation, resets, task selection, environmental preparation, failure exclusions, and operator time. A useful benchmark should report autonomous completion rate, intervention-adjusted cycle time, mean time between recoverable failures, safety-stop frequency, and marginal cost per successful task. <strong>Maturity:</strong> controlled pilots for narrow tasks; pre-commercial for general-purpose factory work. <strong>Confidence:</strong> high.</p>
+
+      <h3>Entry-level edge compute improves</h3>
+      <p>NVIDIA’s Jetson Orin Nano 2 announcement claims 78 TOPS, 8 GB memory, an eight-core Arm CPU, twice the inference performance of Jetson Orin Nano Super, and materially better power efficiency at matched performance. First adopters named by NVIDIA include Cognex and Doosan Bobcat. <a class="citation" href="#ref-2" aria-label="Reference 2">[2]</a></p>
+      <p><strong>Why it matters.</strong> More local compute can reduce sensor-to-action latency, cloud dependence, and exposure of raw industrial data. It also makes smaller VLMs and multimodal policies feasible on low-cost robots and inspection systems. <strong>Limitation:</strong> TOPS is not task throughput; memory bandwidth, quantization, thermal behavior, sensor I/O, and software kernels determine real performance. <strong>Recommended posture:</strong> experiment with representative workloads before standardizing.</p>
+    </section>
+
+    <section id="sensing">
+      <h2>6. Sensing</h2>
+      <h3>Compute, not a new sensor modality, was the material weekly signal</h3>
+      <p>No sensing hardware announcement during the period met the threshold for a major standalone development. The practical change was the edge envelope around existing cameras, microphones, radar, and tactile systems. Jetson Orin Nano 2’s claimed performance and power changes could enable more fusion and local inference within the same thermal budget. <a class="citation" href="#ref-2" aria-label="Reference 2">[2]</a></p>
+      <p>Two preprints illustrate research directions without yet constituting industrial breakthroughs. A revised paper used electrical impedance tomography for multi-touch and bending sensing, while another proposed token-based feature extraction for event-camera reinforcement learning. <a class="citation" href="#ref-9" aria-label="Reference 9">[9]</a><a class="citation" href="#ref-10" aria-label="Reference 10">[10]</a> Both are research evidence, not independently reproduced deployment evidence.</p>
+      <p><strong>Interpretation:</strong> sensing value is shifting toward calibrated fusion, uncertainty estimation, and lifecycle monitoring rather than isolated sensor novelty. IPAI should record calibration state and sensor provenance as first-class experiment data. <strong>Confidence:</strong> medium.</p>
+    </section>
+
+    <section id="data-simulation">
+      <h2>7. Data generation and simulation</h2>
+      <h3>No material platform release; the governance requirement sharpened</h3>
+      <p>No major synthetic-data or simulation platform release during 24–30 August cleared the report’s materiality and evidence thresholds. The domain nevertheless became more important through adjacent developments: MHS could generate rich action-observation traces from instruments, XPENG explicitly allocated capital to high-quality robotics data, and cheaper edge compute expands local data filtering. <a class="citation" href="#ref-1" aria-label="Reference 1">[1]</a><a class="citation" href="#ref-5" aria-label="Reference 5">[5]</a></p>
+      <p><strong>Inference:</strong> physical-agent protocols may create a new provenance choke point. If commands, device identity, calibration, sensor outputs, human overrides, and resulting artifacts share a trace, organizations can reconstruct how a dataset was produced. If the interface logs only successful calls, it can instead hide material intervention and failure data.</p>
+      <p><strong>IPAI action.</strong> Define a minimal provenance schema before accumulating Robotics Gym data: source device and firmware, calibration, environment and simulation version, task definition, model and prompt/policy version, operator actions, failed attempts, transformations, usage rights, and evaluation splits. This is a design recommendation based on IPAI’s stated goals, not an external factual claim.</p>
+    </section>
+
+    <section id="quantum">
+      <h2>8. Quantum technologies</h2>
+      <h3>Pasqal gains capital-market access</h3>
+      <p>French neutral-atom company Pasqal began trading on Nasdaq on 28 August after its business combination. Reuters reported an approximately $2 billion valuation and about $360 million in proceeds, with shares closing materially above the transaction level on debut. <a class="citation" href="#ref-7" aria-label="Reference 7">[7]</a> Earlier transaction materials described a $2 billion pre-money value and capital intended to fund roadmap execution, deployment, and efforts to demonstrate quantum advantage. <a class="citation" href="#ref-11" aria-label="Reference 11">[11]</a></p>
+      <p><strong>What is genuinely new.</strong> A European quantum hardware vendor has broader access to public capital. That could strengthen hiring, production, and customer deployments. <strong>What is not established.</strong> Market valuation and installed machines do not demonstrate a useful advantage over classical computing. Neutral-atom systems still face error, control, compilation, and application-validation challenges.</p>
+      <p><strong>IPAI relevance.</strong> Pasqal is a plausible European partner for education and carefully selected experiments. Any engagement should define a classical baseline, total wall-clock and preparation cost, error bars, reproducibility, and the operational value of the result. <strong>Assessment:</strong> medium strategic importance, high transaction evidence, low application evidence, medium confidence.</p>
+
+      <h3>Background engineering signal: modular cryogenics</h3>
+      <p>IBM’s 19 August announcement falls just outside the coverage window but remained a substantive topic during the week. IBM reported joining two cryogenic modules and cooling the combined environment below 15 mK, with the architecture intended to increase wiring capacity and connect multiple future processors. <a class="citation" href="#ref-8" aria-label="Reference 8">[8]</a> This is an engineering milestone in support infrastructure, not logical-qubit performance or advantage. It reinforces the view that quantum scaling is a systems-engineering problem spanning refrigeration, control wiring, packaging, calibration, and error correction.</p>
+      <p>No new independently reproduced practical quantum advantage was identified in the reporting period. <strong>Recommended posture:</strong> engage selectively with European vendors, monitor logical performance and application evidence, and avoid procurement based on physical-qubit counts or equity-market momentum.</p>
+    </section>
+
+    <section id="emerging">
+      <h2>9. Other emerging technologies</h2>
+      <h3>AI infrastructure and advanced packaging</h3>
+      <p>The AWS–NVIDIA announcement is also a material semiconductor and infrastructure signal. It bundles Blackwell Ultra, Rubin, and Rubin Ultra across a 2027–2028 deployment plan, implying that power delivery, cooling, networking, high-bandwidth memory, and advanced packaging will remain strategic constraints alongside GPU supply. <a class="citation" href="#ref-3" aria-label="Reference 3">[3]</a></p>
+      <p>NVIDIA’s 75% quarterly gross margin and triple-digit year-on-year growth indicate continued scarcity value and pricing power, although company-wide financial results cannot isolate the economics of each accelerator generation. <a class="citation" href="#ref-4" aria-label="Reference 4">[4]</a> <strong>Inference:</strong> the industrial opportunity increasingly lies in integration efficiency—utilization, energy, networking, scheduling, and application throughput—rather than raw access alone.</p>
+      <p>No other adjacent field produced a weekly development with sufficient evidence and relevance to warrant a separate section. Monitored areas included photonics, neuromorphic computing, energy storage, spatial computing, biotechnology–AI convergence, and privacy-enhancing technologies.</p>
+    </section>
+
+    <section id="synthesis">
+      <h2>10. Cross-domain synthesis</h2>
+      <h3>The control plane is becoming a strategic layer</h3>
+      <p>AI development is moving beyond model endpoints toward control planes for software tools, hardware devices, data lineage, and distributed compute. MHS is the week’s clearest expression of this shift. The value may accrue to whoever defines safe interfaces, permissions, telemetry, and evaluation—not only to the model or robot vendor.</p>
+      <h3>More compute raises the value of evaluation</h3>
+      <p>Cloud scale, edge efficiency, robotics financing, and quantum capital all expanded. None automatically improves useful task completion. As deployment options multiply, neutral comparisons become more valuable: application throughput per euro and joule; autonomy adjusted for intervention; and advantage measured against strong classical or conventional-automation baselines.</p>
+      <h3>Physical data becomes an economic and governance asset</h3>
+      <p>Vertical integration in robotics is partly a data strategy. Standardized hardware interfaces could increase the volume and comparability of physical traces, while on-device compute can filter sensitive raw signals. The second-order risk is that proprietary device skills and telemetry formats recreate lock-in above nominally open protocols. IPAI’s strategic response should be open schemas and exportable evidence packages.</p>
+      <h3>Europe’s position is stronger in trusted deployment than in scale</h3>
+      <p>Pasqal’s listing shows that a European deep-technology company can access substantial public-market capital, while the AI Act now supplies an enforceable regulatory environment for many obligations. The Commission states that most AI Act rules became applicable on 2 August 2026, with later dates for specified high-risk categories after the AI Omnibus changes. <a class="citation" href="#ref-12" aria-label="Reference 12">[12]</a> <strong>Interpretation:</strong> IPAI can differentiate through compliant experimentation and evidence generation, provided compliance is embedded in the test architecture rather than treated as documentation after deployment.</p>
+    </section>
+
+    <section id="watchlist">
+      <h2>11. Watchlist</h2>
+      <figure>
+        <figcaption>Observable triggers for the next one to twelve months</figcaption>
+        <table>
+          <thead><tr><th>Item</th><th>Observable trigger</th><th>Why it matters</th><th>Timeframe</th><th>Confidence</th><th>Evidence that would change the assessment</th></tr></thead>
+          <tbody>
+            <tr><td>MHS adoption</td><td>Open specification, independent drivers, two equipment vendors</td><td>Tests whether a physical-agent protocol can become infrastructure</td><td>1–6 months</td><td>Medium</td><td>Safety failures, closed licensing, or no vendor implementations</td></tr>
+            <tr><td>Humanoid productivity</td><td>Multi-shift deployment with intervention and cost disclosure</td><td>Separates industrial value from demonstrations</td><td>3–12 months</td><td>Medium-low</td><td>Independent data showing parity with conventional automation</td></tr>
+            <tr><td>Edge VLM economics</td><td>Third-party task benchmarks on Orin Nano 2</td><td>Determines feasibility of local multimodal control</td><td>1–3 months</td><td>Medium-high</td><td>Memory or thermal limits erase vendor-claimed gains</td></tr>
+            <tr><td>AWS GPU build-out</td><td>Named regions, power capacity, delivered instances, pricing</td><td>Converts a directional announcement into usable supply</td><td>6–12 months</td><td>Medium</td><td>Delays, low utilization, or power constraints</td></tr>
+            <tr><td>Pasqal application evidence</td><td>Reproducible workload beating strong classical baselines</td><td>Would move the story from financing to advantage</td><td>6–12 months</td><td>Low</td><td>Peer-reviewed end-to-end advantage including overhead</td></tr>
+            <tr><td>Physical-data provenance</td><td>Protocols expose calibration, intervention, and failure logs</td><td>Enables trusted robotics datasets and audits</td><td>3–9 months</td><td>Medium</td><td>Interfaces standardize commands but omit evidence lineage</td></tr>
+          </tbody>
+        </table>
+      </figure>
+    </section>
+
+    <section id="references">
+      <h2>12. References</h2>
+      <ol>
+        <li id="ref-1">Anthropic. <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">“Previewing the Model Hardware Standard.”</a> 27 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-2">NVIDIA. <a href="https://nvidianews.nvidia.com/news/nvidia-announces-jetson-orin-nano-2-robotics-computer-to-redefine-entry-level-edge-ai">“NVIDIA Announces Jetson Orin Nano 2 Robotics Computer to Redefine Entry-Level Edge AI.”</a> 25 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-3">NVIDIA and Amazon Web Services. <a href="https://nvidianews.nvidia.com/news/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai">“AWS and NVIDIA to Deliver 2 Million Additional GPUs and Next-Generation Infrastructure for Agentic and Physical AI.”</a> 26 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-4">NVIDIA. <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027">“NVIDIA Announces Financial Results for Second Quarter Fiscal 2027.”</a> 26 August 2026. Quarter ended 26 July 2026. Accessed 31 August 2026.</li>
+        <li id="ref-5">XPENG. <a href="https://www.xpeng.com/pressroom/news/01a03797fccda01e0de68a02a256006a">“XPENG Robotics Raises US$900M for Humanoid Robots.”</a> 24 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-6">Reuters. <a href="https://www.reuters.com/investigations/chinas-humanoid-robots-arent-smart-enough-take-your-job-yet-2026-08-27/">“China can build kung fu-fighting robots. But it can't get them to do factory work.”</a> 27 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-7">Reuters. <a href="https://www.reuters.com/business/frances-quantum-computer-maker-pasqal-surges-nasdaq-debut-2026-08-28/">“Pasqal shares leap as French quantum firm makes Nasdaq debut.”</a> 28 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-8">IBM. <a href="https://www.ibm.com/quantum/blog/modular-cryogenics">“IBM’s new modular architecture for cryogenic systems.”</a> 19 August 2026. Background source. Accessed 31 August 2026.</li>
+        <li id="ref-9">Haofeng Chen et al. <a href="https://arxiv.org/html/2503.13048v4">“Multi-Touch and Bending Sensing Using Electrical Impedance Tomography for Robotics.”</a> arXiv:2503.13048v4, revised 26 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-10">Tristan Gottwald et al. <a href="https://arxiv.org/html/2608.16523v2">“FLEET: Token-Based Feature Extraction for Event Camera-based Reinforcement Learning.”</a> arXiv:2608.16523v2, revised 26 August 2026. Accessed 31 August 2026.</li>
+        <li id="ref-11">Pasqal. <a href="https://www.pasqal.com/newsroom/pasqal-a-global-leader-in-neutral-atom-quantum-computing-to-go-public-via-business-combination-with-bleichroeder-acquisition-corp-ii/">“Pasqal, A Global Leader in Neutral Atom Quantum Computing, to Go Public via Business Combination with Bleichroeder Acquisition Corp. II.”</a> 4 March 2026. Background transaction source. Accessed 31 August 2026.</li>
+        <li id="ref-12">European Commission. <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">“AI Act: regulatory framework.”</a> Current official implementation timeline, accessed 31 August 2026.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="#top">Return to top</a></p>
+    <p>Assessment labels distinguish sourced facts from interpretation, inference, prediction, and uncertainty. Vendor benchmarks and roadmaps are treated as claims unless independently verified.</p>
+  </footer>
+</article>
+</body>
+</html>
